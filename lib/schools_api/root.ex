@@ -148,6 +148,13 @@ defmodule SchoolsApi.Root do
 
   """
   def create_user(attrs \\ %{}) do
+    password = Enum.map(0..6, fn _ ->
+      Enum.to_list(?a..?z) ++ Enum.to_list(?0..?9)
+      |> Enum.random()
+    end)
+
+    attrs = Map.merge(attrs, %{"password"=>"#{password}"})
+
     %User{}
     |> User.changeset(attrs)
     |> Repo.insert()

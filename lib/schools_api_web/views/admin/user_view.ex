@@ -14,6 +14,7 @@ defmodule SchoolsApiWeb.Admin.UserView do
     %{id: user.id,
       name: user.name,
       email: user.email,
+      encrypted_password: user.encrypted_password,
       phone: user.phone,
       address: user.address}
   end

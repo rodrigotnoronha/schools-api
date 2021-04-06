@@ -5,6 +5,7 @@ defmodule SchoolsApi.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :name, :string
       add :email, :string
+      add :encrypted_password, :string
       add :phone, :string
       add :address, :string
 
