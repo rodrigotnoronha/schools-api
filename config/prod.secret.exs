@@ -13,7 +13,11 @@ database_url =
 
 config :schools_api, SchoolsApi.Repo,
   # ssl: true,
-  url: database_url,
+  database: System.get_env("RDS_DB_NAME"),
+  username: System.get_env("RDS_USERNAME"),
+  password: System.get_env("RDS_PASSWORD"),
+  hostname: System.get_env("RDS_HOSTNAME"),
+  port: System.get_env("RDS_PORT") || 5432,
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
 secret_key_base =
